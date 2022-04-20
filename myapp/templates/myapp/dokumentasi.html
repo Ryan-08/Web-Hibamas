@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{page}}
+{% endblock title %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+<section class="dokumentasi">
+    <h1 class="title p-2">
+        Dokumentasi <br> Hibah
+    </h1>                        
+            {% for eachdata in page_obj %} 
+                {% if forloop.counter0|divisibleby:3 or forloop.counter0 == 0%}  
+                <div class="row">
+                {% endif %}
+                <div class="col p-2">
+                    <img src="{{ eachdata.doc.picture.url }}" class="image" alt="image">
+                </div>  
+                {% if forloop.counter|divisibleby:3%}                  
+                </div>
+                {% endif %}              
+            {% empty %}
+            <h2 class="p-2">Belum Ada Dokumentasi</h2>  
+            {% endfor %}
+        </div>  
+        <div class="pagination p-2">
+            <span class="step-links p-1">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+        
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>                                  
+</section>
+{% endblock content %}

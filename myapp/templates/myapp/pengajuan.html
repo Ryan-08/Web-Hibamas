@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{page}}
+{% endblock title %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+<section class="section">
+    <h1 class="title p-2">Pengajuan <br> Bantuan</h1>  
+    
+    <div class="pengajuan p-2">        
+            {% for eachdata in page_obj %} 
+            <a href="{% url 'myapp:item' eachdata.id %}" class="row">
+                <img src="{% static 'img/dummy.jpg' %}" class="image" alt="image">
+                <div class="col">
+                    <div class="title">{{eachdata.prop.filename}}</div>
+                    <div class="desc">
+                        {{eachdata.prop.description}}
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga commodi nam voluptas nulla laboriosam quia voluptatem, autem distinctio, repellat doloribus laborum qui ipsum veritatis eaque, labore aliquam modi nihil porro.
+                    </div>                    
+                    <button class="btn-light">
+                        SELANJUTNYA
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </button>
+                </div>
+            </a>
+            {% empty %}
+            <h2>Belum Ada Proposal</h2>  
+            {% endfor %}        
+    </div>
+    <div class="pagination p-2">
+        <span class="step-links p-1">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</section>
+{% endblock content %}

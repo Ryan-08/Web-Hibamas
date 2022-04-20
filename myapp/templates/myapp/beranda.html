@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{page}}
+{% endblock title %}
+
+{% block header %}
+<div class="header">
+    H I B A H &nbsp;M A S J I D
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="header header-mini">
+    H I B A H &nbsp;M A S J I D
+</div>
+<section class="beranda row">
+    <div class="col">
+        <h1 class="title p-2">Beranda</h1>
+        <p class="desc p-1">&nbsp;&nbsp;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit repudiandae repellendus illum aperiam voluptate dolor at fuga voluptates, numquam architecto tempora mollitia laudantium neque quidem deserunt doloremque ad obcaecati nobis.</p>
+        <div class="news">
+            <div class="header p-1">Berita</div>
+            <a href="#" class="news-content col p-1">
+                <div class="title">Proposal 1</div>
+                <div class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat labore, nisi quasi natus, ipsum vel aperiam nulla provident enim ipsa quaerat blanditiis amet porro maxime soluta, rerum earum molestias minus!</div>
+            </a>        
+            <a href="#" class="news-content col p-1">
+                <div class="title">Proposal 2</div>
+                <div class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat labore, nisi quasi natus, ipsum vel aperiam nulla provident enim ipsa quaerat blanditiis amet porro maxime soluta, rerum earum molestias minus!</div>
+            </a>        
+        </div>
+    </div>
+    <div class="col p-2">
+        <img src="{% static 'img/masjid-1.jpg' %}" class="image" alt="image">
+    </div>
+</section>
+<section class="tentang row">
+    <div class="row">
+        <div class="col">
+            <div class="row">            
+                <img src="{% static 'img/masjid-4.jpg' %}" class="image" alt="image">
+            </div>
+            <div class="row">            
+                <img src="{% static 'img/masjid-3.jpg' %}" class="image" alt="image">
+            </div>
+        </div>
+        <div class="col" style="justify-content: center;">
+            <img src="{% static 'img/masjid-2.jpg' %}" class="image" alt="image">
+        </div>
+    </div>
+    <div class="col">
+        <h1 class="title">Tentang</h1>
+        <p class="desc p-1">&nbsp;&nbsp;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit repudiandae repellendus illum aperiam voluptate dolor at fuga voluptates, numquam architecto tempora mollitia laudantium neque quidem deserunt doloremque ad obcaecati nobis.</p>
+    </div>
+</section>
+<section class="visimisi">
+    <h1 class="title">Visi & Misi</h1>
+    <div class="row">
+        <div class="vm">
+            <div class="num">1</div>
+            <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem illum quidem nisi nobis officia omnis esse sint, eaque quasi voluptate officiis dolores tenetur, autem, eligendi non.</div>
+        </div>
+        <div class="vm">
+            <div class="num">2</div>
+            <div class="text">Lorem ipsum dolor, adipisicing elit. Suscipit a distinctio totam dolorem eum iste quas rerum, beatae labore molestias accusamus. Ex earum porro quo esse, inventore sed modi? Aperiam!</div>
+        </div>
+    </div>
+</section>
+<section class="dokumentasi">
+    <h1 class="title">Dokumentasi</h1>              
+            {% for eachdata in data %} 
+                {% if forloop.counter0|divisibleby:3 or forloop.counter0 == 0%}  
+                <div class="row">
+                {% endif %}
+                <div class="col p-2">
+                    <img src="{{ eachdata.doc.picture.url }}" class="image" alt="image">
+                </div>  
+                {% if forloop.counter|divisibleby:3%}                  
+                </div>
+                {% endif %}  
+            {% empty %}
+            <h2>Belum Ada Dokumentasi</h2>            
+            {% endfor %}
+        </div>
+    <div class="right">
+        <a href="{% url 'myapp:dokumentasi' %}" class="btn-black">
+            SEMUA DOKUMEN
+            <i class="fa-solid fa-arrow-right-long"></i>
+        </a>
+    </div>
+</section>
+<section class="contact">
+    <h1 class="title">Hubungi Kami</h1>
+    <div class="row">
+        <form method="post" enctype=”multipart/form-data” class="form col p-2">
+            {% csrf_token %}
+            <div class="form-input">            
+                <input type="text" name="nama" id="nama" placeholder="Nama">
+            </div>
+            <div class="form-input">            
+                <input type="text" name="nohp" id="nohp" placeholder="No. HP">
+            </div>
+            <div class="form-input">            
+                <input type="email" name="email" id="email" placeholder="E-mail">
+            </div>
+            <div class="form-input">            
+                <input type="text" name="jenis" id="jenis" placeholder="Jenis Bantuan">
+            </div>
+            <div class="form-input">            
+                <textarea name="pesan" id="pesan" cols="40" rows="5" placeholder="Pesan"></textarea>
+            </div>
+            <div class="form-btn">                
+                <button type="submit" class="btn-black">
+                    KIRIM EMAIL
+                    <i class="fa-solid fa-arrow-right-long"></i>
+                </button>
+            </div>
+        </form>
+        <div class="col p-2">
+            <img src="{% static 'img/contact.jpg' %}" class="image" alt="image">
+        </div>
+    </div>
+</section>
+{% if success %}
+    {% include 'myapp/snippet/notif-modal.html' %}
+{% endif %}
+{% endblock content %}

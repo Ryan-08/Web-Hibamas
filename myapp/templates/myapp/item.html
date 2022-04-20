@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{page}}
+{% endblock title %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+<section class="section">
+    <h1 class="title p-2">{{ data.filename }}</h1>  
+    
+    <div class="row p-2">
+        <img style="width: 100%; height: 400px;" src="{% static 'img/dummy.jpg' %}" class="image" alt="image">
+    </div>
+    <div class="row p-2">
+        <div class="col">
+            <img style="width: 600px; height: 400px;" src="{% static 'img/dummy.jpg' %}" class="image" alt="image">
+        </div>
+        <div class="col p-2">
+            {{ data.description }}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum officiis ea possimus fugiat, dolorem dicta ratione iusto? Ratione reprehenderit quos fuga dignissimos, nesciunt accusantium incidunt. Nostrum vero nobis inventore aliquid.
+        </div>
+    </div>
+    
+</section>
+{% endblock content %}

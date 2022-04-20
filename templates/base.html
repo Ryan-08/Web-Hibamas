@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+    {% include 'snippet/style.html' %}
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>        
+
+    
+</head>
+
+<body>
+    <div class="content">
+        <!-- header -->
+        <div class="page-header" data-parallax='true'>
+            {% block header %}
+            {% endblock header %}
+        </div>
+        <!-- end of header -->
+
+        {% comment %} navbar {% endcomment %}
+        {% include 'snippet/navbar.html' %}
+
+
+        <div id="mybody">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
+    
+
+    {% comment %} footer {% endcomment %}
+    {% include 'snippet/footer.html' %}  
+    
+    {% include 'snippet/script.html' %}
+</body>
+
+</html>

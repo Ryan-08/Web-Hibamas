@@ -1,0 +1,64 @@
+{% load static %}
+<footer class="footer col">    
+    <div class="row">
+        <!-- 1st col -->
+        <div class="col p-2">
+            <a href="#" class="logo">
+                <img src="{% static 'img/dummy.jpg' %}" alt="logo">
+            </a>
+        </div>
+        <!-- 2nd col -->
+        <ul class="col p-2">
+            <li class="footer-list">
+                <a href="{% url 'myapp:index' %}">Beranda</a>
+            </li>
+            <li class="footer-list">
+                <a href="{% url 'myapp:dokumentasi' %}">Dokumentasi</a>
+            </li>
+            <li class="footer-list">
+                <a href="{% url 'myapp:pengajuan' %}">Pengajuan Bantuan</a>
+            </li>
+            <li class="footer-list">
+                <a href="{% url 'myapp:pengumuman' %}">Pengumuman</a>
+            </li>
+            <li class="footer-list">
+                <a href="{% url 'myapp:contact' %}">Hubungi</a>
+            </li>
+        </ul>
+        <!-- 3rd col -->
+        <ul class="col p-2">
+            <li class="footer-list">
+                Kontak
+            </li>
+            <li class="footer-list">
+                <i class="fas fa-map-marker-alt"></i> 
+                Lingke, Syiah Kuala
+            </li>
+            <li class="footer-list">
+                <i class="fa-solid fa-phone"></i>
+                0813-6190-6789
+            </li>            
+            <li class="footer-list">
+                <i class="fas fa-envelope"></i>
+                hifomas@gmail.com
+            </li>            
+        </ul>
+        <!-- 4th col -->
+        <div class="col p-2">
+            <div class="sosmed">
+                Social Media
+            </div>
+            <div class="icon-sosmed row">
+                <div class="col">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="col">
+                    <i class="fab fa-twitter"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row copyright">
+        &copy; 2022 All Right Reserved
+    </div>    
+</footer>

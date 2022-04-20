@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{page}}
+{% endblock title %}
+
+{% block header %}
+<div class="header">
+    H I B A H &nbsp;M A S J I D
+</div>
+{% endblock header %}
+
+{% block content %}
+<section class="beranda row">
+    <div class="col">
+        <h1 class="title p-2">Admin</h1>
+        <div class="row">
+            <button class="btn-second" id="modalDoc-btn">Upload Dokumentasi</button>
+        </div>
+        <div class="row">
+            <button class="btn-second" id="myPropBtn">Upload Proposal</button>
+        </div>
+        <div class="row">
+            <button class="btn-second" id="mypmmBtn">Upload Pengumuman</button>
+        </div>
+    </div>
+    <div class="col p-2" style="align-items: flex-end;">
+        <img src="{% static 'img/masjid.jpg' %}" style="width: 80%;" class="image" alt="image">
+    </div>
+</section>
+
+{% include 'myapp/snippet/modal-doc.html' %}
+{% include 'myapp/snippet/modal-prop.html' %}
+{% include 'myapp/snippet/modal-pmm.html' %}
+{% endblock content %}

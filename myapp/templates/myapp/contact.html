@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{page}}
+{% endblock title %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+<section class="section p-2">
+    <h1 class="title">Hubungi</h1>
+    <div class="row">
+        <div class="col" style="justify-content: space-around;">
+            <div class="admin">
+                <span style="font-weight: 600;">Admin HIBAMAS</span>
+                <br>
+                <span>Lingke, Syiah Kuala</span>
+            </div>
+            <div class="phone">
+                <span style="font-weight: 600;">Telp.</span>
+                <br>
+                <span style="font-weight: 600;">0813-6190-6789</span>
+            </div>
+            <div class="email">
+                <span style="font-weight: 600;">E-mail</span>
+                <br>
+                <span>hifomas@gmail.com</span>    
+            </div>            
+            <a href="mailto:hifomas@gmail.com" class="btn-black">
+                HUBUNGI KAMI
+                <i class="fa-solid fa-arrow-right-long"></i>
+            </a>
+        </div>
+        <!-- map -->
+        <div class="map col">
+            <div style="width: 100%">
+                <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=syiah%20kuala+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                    <a href="https://www.gps.ie/marine-gps/">navigation gps</a>
+                </iframe>
+            </div>
+        </div>
+        <!-- end of map -->
+    </div>  
+</section>
+{% endblock content %}

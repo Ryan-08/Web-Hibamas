@@ -1,0 +1,124 @@
+{% load static %}
+<style>
+    /* modal */
+/* The Modal (background) */
+.notif-modal {
+    /* display: none; */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .notif-modal-content {
+    background-color: #fefefe;
+    margin: 2% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The notif-close Button */
+  .notif-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .notif-close:hover,
+  .notif-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+.check{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.check img.image{
+    margin-left: 140px;
+    width: 50%;
+    height: 50%;
+  }
+  #sub .btn-black {
+    width: 100%;
+  }
+  .text-l{
+      font-size: 2em;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 10px;
+  }
+  .text-m {
+      text-align: center;
+      margin-bottom: 20px;
+  }
+/* end of modal */
+</style>
+<!-- <button id="mynotifBtn">Open Modal</button> -->
+
+<!-- The Modal -->
+<div id="mynotif-Modal" class="notif-modal">
+
+  <!-- notif-Modal content -->
+  <div class="notif-modal-content">
+    <span class="notif-close">&times;</span>
+    <div class="check">
+        <img src="{% static 'img/check.png' %}" class="image" alt="image">
+    </div>
+    <div class="text-l">
+        Berhasil !
+    </div>
+    <div class="text-m">
+        Email Anda Telah Terkirim
+    </div>
+    <div id="sub" class="button">
+        <button class="btn-black">
+            SELESAI
+        </button>
+    </div>
+  </div>
+
+</div>
+<script>
+    // Get the modal
+var modal = document.getElementById("mynotif-Modal");
+
+// Get the button that opens the modal
+// var btn = document.getElementById("mynotifBtn");
+
+// Get the <span> element that notif-closes the modal
+var span = document.getElementsByClassName("notif-close")[0];
+
+// get button selesai
+var done = document.getElementById("sub");
+
+// When the user clicks on the button, open the modal
+// btn.onclick = function() {
+//   modal.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), notif-close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+done.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, notif-close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>

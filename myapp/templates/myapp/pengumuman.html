@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{page}}
+{% endblock title %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+<section class="section">
+    <h1 class="title p-2">PENGUMUMAN</h1>  
+    <div class="pengumuman">        
+            {% for eachdata in page_obj %}
+            <div class="row" style="justify-content:flex-start">
+                <div class="col">
+                    <div class="title">{{eachdata.umum.nama}}</div>
+                    <div class="row">
+                        <div class="desc">
+                            {{eachdata.umum.desc}}
+                            pada tanggal
+                            {{ eachdata.umum.tanggal }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    
+                    <img src="{% static 'img/icon.jpg' %}" class="image" width="80px" alt="image">
+                </div>
+            </div>
+            {% empty %}
+            <h2 class="p-2">Belum Ada Pengumuman</h2>
+            {% endfor %}        
+        <!-- <div class="col">
+            <div class="title">Masjid Al Jihad</div>
+            <div class="row">
+                <div class="desc">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, adipisci eaque. Doloremque amet itaque nostrum ipsam corrupti eius repudiandae, tempore fugiat, quas debitis eos assumenda ipsum. Voluptatibus deleniti libero sequi?                
+                </div>
+                <img src="{% static 'img/dummy.jpg' %}" class="image" width="80px" alt="image">
+            </div>
+        </div> -->
+    </div>
+    <div class="pagination p-2">
+        <span class="step-links p-1">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</section>
+{% endblock content %}

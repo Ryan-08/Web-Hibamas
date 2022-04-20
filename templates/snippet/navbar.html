@@ -1,0 +1,62 @@
+{% load static %}
+<nav class="navbar">
+    <a href="{% url 'myapp:index' %}" class="logo">
+        <img src="{% static 'img/dummy.jpg' %}" alt="logo">
+    </a>
+    <button onclick="toggle()" class="btn-menu toggler">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="navbar-collapse collapse" id="collapsed">
+        <ul class="list-nav">
+            <li class="navlink">
+                <a href="{% url 'myapp:index' %}">BERANDA</a>
+            </li>
+            <li class="navlink">
+                <a href="{% url 'myapp:dokumentasi' %}">DOKUMENTASI</a>
+            </li>
+            <li class="navlink">
+                <a href="{% url 'myapp:pengajuan' %}">PENGAJUAN BANTUAN</a>
+            </li>
+            <li class="navlink">
+                <a href="{% url 'myapp:pengumuman' %}">PENGUMUMAN</a>
+            </li>
+            <li class="navlink">
+                <a href="{% url 'myapp:contact' %}">HUBUNGI</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="navlink">
+                <a href="{% url 'myapp:menu' %}">Admin
+                    <i class="fas fa-user-circle"></i>
+                </a>
+            </li>
+            <li class="navlink">
+                <a href="{% url 'myapp:logout' %}">LOGOUT
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </a>
+            </li>
+            {% else %}
+            <li class="navlink">
+                <a href="#" id="myBtn">LOGIN
+                    <i class="fas fa-user-circle"></i>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+    {% include 'myapp/snippet/login-modal.html' %}
+</nav>
+<script>
+    var button = document.getElementsByClassName('toggler');
+  for (var i = 0; i < button.length; i++) {
+    button[i].addEventListener('click', function () {
+      var content = document.getElementById('collapsed');
+      if (content.style.maxHeight) {
+        // content.style.marginTop = '0px';
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = "320px";
+        // content.style.marginTop = '20px';
+      }
+    });
+  }
+</script>
