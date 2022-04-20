@@ -11,7 +11,7 @@
 2. Install juga mongodb Compass
 3. Connect ke mongodb
     * Buka mongodb Compass
-    ![mongodbCompass](static\img\ss1.PNG)
+    ![mongodbCompass](https://github.com/Ryan-08/Web-Hibamas/blob/main/static/img/ss1.PNG)
     * klik connect
 
 ### STEP 3 Migration Database
@@ -24,7 +24,7 @@
 ---
 1. Buka terminal di vscode (pastiin directory udah betul)
 2. Run `py manage.py createsuperuser` atau `python manage.py createsuperuser` terus buat nama, email sama passwordnya. Contoh dibawah.
-    * ![createuser](static\img\ss2.PNG)
+    * ![createuser](https://github.com/Ryan-08/Web-Hibamas/blob/main/static/img/ss2.PNG)
     * *NOTE password emang ga kelihatan
 
 ### STEP 5 Jalanin Aplikasi
