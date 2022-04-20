@@ -3,8 +3,8 @@
     <div class="row">
         <!-- 1st col -->
         <div class="col p-2">
-            <a href="#" class="logo">
-                <img src="{% static 'img/dummy.jpg' %}" alt="logo">
+            <a href="{% url 'myapp:index' %}" class="logo">
+                <img src="{% static 'img/Logo.svg' %}" alt="logo">
             </a>
         </div>
         <!-- 2nd col -->
@@ -49,12 +49,12 @@
                 Social Media
             </div>
             <div class="icon-sosmed row">
-                <div class="col">
+                <a href="#" class="col flink">
                     <i class="fab fa-facebook-f"></i>
-                </div>
-                <div class="col">
+                </a>
+                <a href="#" class="col flink">
                     <i class="fab fa-twitter"></i>
-                </div>
+                </a>
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-*{
+*, html, body{
     margin: 0;
     padding: 0; 
     font-family: 'Prompt', sans-serif; 
@@ -163,7 +163,8 @@ a {
     text-align: justify;
     font-size: 1.5em;
     width: 400px;
-}.dokumentasi .image{
+}
+.dokumentasi .image{
     width: 350px;
     height: 350px;
 }
@@ -364,11 +365,44 @@ input {
     .col .email{
         margin-bottom: 18px;
     }
+    .tentang.row {
+        flex-direction: column-reverse;
+    }
+    .tentang .image {
+        padding: 0px;
+    }
+    .visimisi .vm .text{    
+        width: 80%;       
+    }
 }
 @media screen and (max-width: 600px){
+    section {
+        margin-bottom: 80px;
+    }
+    .content {
+        margin: 0px 12px;
+    }
     .header{
         display: none;
     }
+    .header.header-mini{
+        font-size: 15vw;   
+        display: block;           
+    }
+    .tentang .image {
+        padding: 0px;
+    }
+    .visimisi .vm .num{        
+        font-size: 8em;         
+    }
+    .visimisi .vm .text{    
+        font-size: 1em;        
+    }
+}
+@media screen and (max-width: 520px){  
+    .content {
+        margin: 0px 12px;
+    }  
     .header.header-mini{
         font-size: 14vw;   
         display: block;           
@@ -376,3 +410,24 @@ input {
 }
 /* end of responsive */
 
+/* Hover Link */
+.footer-list > a:hover{
+    color: blue;    
+}
+.flink:hover > i{
+    color: blue;    
+}
+.btn-black:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 17px 30px;
+    transition: background-color ease-in-out 0.3s;
+}
+.navlink > a:hover{
+    border: 2px solid black;   
+    padding: 12px;     
+    border-radius: 8px;
+    transition: all 0.2s ease-in;
+}
+/* End of Hover Link */
